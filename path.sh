@@ -3,6 +3,12 @@ dir=$1
 str1="export PATH=\"\$PATH:$dir\""
 str2="export PATH=\"\$PATH:$PWD\""
 opfile="/home/incrypto/.paths"
+if [ -f "$opfile" ];
+then
+    echo ".paths already exists"
+else
+    touch $HOME/.paths
+fi
 if [ -d "$dir" ]
 then
     count=$(grep -c "$str1" "$opfile") 
